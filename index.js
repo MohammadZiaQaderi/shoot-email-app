@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
+app.use(cors());
+app.use(cors({origin:'https://68bda787b7237ef808403ecd--mohammad-zia-qaderi.netlify.app/'}));
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -33,6 +36,11 @@ app.post('/send-email', async (req, res) => {
     console.error('Email sending failed:', error);
     res.status(500).json({ error: 'Failed to send email' });
   }
+});
+
+app.get('/get-data', async (req,res)=> {
+     res.writeHead(200, {'Content-Type': 'text/html'});
+     res.end('Hello there');
 });
 
 app.listen(PORT, () => {
