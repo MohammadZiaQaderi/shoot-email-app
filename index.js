@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({origin:'https://mohammad-zia-qaderi-1989.netlify.app'}));
+app.use(cors({origin:'https://mohammadziaqaderi.github.io/shoot-email-app-client'}));
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
